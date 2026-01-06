@@ -46,14 +46,14 @@ $(function () {
     $(function () {
 
                localStorage.setItem("light-mode", "set");
-                $(".navbar .logo img , footer .logo img").attr("src", "assets/imgs/logo-dark.svg");
+                $(".navbar .logo img , footer .logo img").attr("src", "assets/imgs/logo-dark1.svg");
 
         document.querySelector(".theme-icon").addEventListener("click", () => {
             toggleLocalStorageItem();
             toggleRootClass();
         });
 
-        $("body.light .navbar .logo img , body.light footer .logo img").attr("src", "assets/imgs/logo-dark.svg");
+        $("body.light .navbar .logo img , body.light footer .logo img").attr("src", "assets/imgs/logo-dark1.svg");
 
     });
 
@@ -105,12 +105,12 @@ $(function () {
         if (bodyScroll > mainMarqOffset) {
 
             navbar.addClass("nav-scroll");
-            logo.attr('src', 'assets/imgs/logo-normal.svg');
+            logo.attr('src', 'assets/imgs/logo-normal33.svg');
 
         } else {
 
             navbar.removeClass("nav-scroll");
-            logo.attr('src', 'assets/imgs/logo-dark.svg');
+            logo.attr('src', 'assets/imgs/logo-dark1.svg');
         }
     });
 
