@@ -105,7 +105,7 @@ $(function () {
         if (bodyScroll > mainMarqOffset) {
 
             navbar.addClass("nav-scroll");
-            logo.attr('src', 'assets/imgs/logo-normal33.svg');
+            logo.attr('src', 'assets/imgs/logo-normal33.png');
 
         } else {
 
