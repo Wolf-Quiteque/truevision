@@ -10909,6 +10909,35 @@ footer .subscribe p a {
   opacity: 1;
 }
 
+/* Intro image effects */
+.intro-img {
+  animation: introSparkle 3s ease-in-out, float 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.intro-img:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes introSparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+}
+
 /* ====================== [ Start Colors Skin  ] ====================== */
 body:not(.light) .theme-icon .sun {
   display: none;
