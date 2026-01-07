@@ -10501,7 +10501,7 @@ footer .subscribe p a {
 }
 .serv-style4 .item:hover {
   background: #b9f3ff !important;
-  color: #1f1f1f;
+  color: #000000;
 }
 .serv-style4 .item:hover .img {
   filter: grayscale(1);
