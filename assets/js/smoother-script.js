@@ -11,4 +11,11 @@ $(function () {
     effects: true,
   });
 
+  // Smooth scroll for nav links
+  $('.navbar-nav .nav-link').on('click', function(e) {
+    e.preventDefault();
+    const target = $(this).attr('href');
+    smoother.scrollTo(target);
+  });
+
 });
