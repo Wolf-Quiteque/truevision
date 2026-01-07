@@ -9,7 +9,7 @@
     Version: 1.0
 
 -----------------------------------------------------------------------------------*/
-/* Variables ff8743 d4fe76 DDF160
+/* Variables ff8743 d4fe76 b9f3ff
 -----------------------------------------------------------------*/
 /* ===================================
     03. Reset
@@ -113,11 +113,11 @@ body .blur-div {
 }
 
 .main-color {
-  color: #DDF160 !important;
+  color: #b9f3ff !important;
 }
 
 .main-colorbg {
-  background-color: #DDF160 !important;
+  background-color: #b9f3ff !important;
 }
 
 .main-color2 {
@@ -7785,7 +7785,7 @@ body.loaded {
   transition: all 0.4s;
 }
 .hamenu .menu-links .main-menu .sub-menu li a:hover {
-  color: #DDF160;
+  color: #b9f3ff;
 }
 .hamenu .menu-links .main-menu .sub-menu2 {
   display: none;
@@ -8615,7 +8615,7 @@ body.light .theme-icon .moon {
 }
 .main-post .info-area .tags a:hover,
 .main-post .info-area .share-icon a:hover {
-  background: #DDF160 !important;
+  background: #b9f3ff !important;
   color: #171717;
 }
 .main-post .info-area .share-icon a {
@@ -8687,7 +8687,7 @@ body.light .theme-icon .moon {
   transition: all 0.4s;
 }
 .comments-post .item-box .replay-butn a:hover {
-  background: #DDF160;
+  background: #b9f3ff;
   color: #1d1d1d;
 }
 
@@ -8792,7 +8792,7 @@ body.light .theme-icon .moon {
   transition: all 0.4s;
 }
 .contact button:hover {
-  background: #DDF160;
+  background: #b9f3ff;
 }
 .contact .info-box {
   padding: 80px 40px;
@@ -8915,7 +8915,7 @@ body.light .theme-icon .moon {
   transition: all 0.4s;
 }
 .price-style1 .butn.active {
-  background: #DDF160;
+  background: #b9f3ff;
 }
 .price-style1 .butn:hover {
   background: transparent;
@@ -9202,7 +9202,7 @@ footer .subscribe p a {
   color: #fff;
 }
 .hero-style2 .serv .content .item span.bred {
-  background: #DDF160;
+  background: #b9f3ff;
   color: #1f1f1f;
 }
 .hero-style2 .serv .content .item img {
@@ -9729,7 +9729,7 @@ footer .subscribe p a {
   transition: all 0.4s;
 }
 .portfolio-style1 .item .img .tags a:hover {
-  background: #DDF160;
+  background: #b9f3ff;
   color: #1f1f1f;
 }
 .portfolio-style1 .item .img:after {
@@ -10500,7 +10500,7 @@ footer .subscribe p a {
   height: 100%;
 }
 .serv-style4 .item:hover {
-  background: #DDF160 !important;
+  background: #b9f3ff !important;
   color: #1f1f1f;
 }
 .serv-style4 .item:hover .img {
@@ -10955,7 +10955,7 @@ body.light .bg-light .butn-more .arrow-icon {
   background: #ccc;
 }
 body.light .bg-light.main-colorbg {
-  background: #DDF160 !important;
+  background: #b9f3ff !important;
   color: #161616 !important;
 }
 body.light .bg-light.main-colorbg p {
