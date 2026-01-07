@@ -467,14 +467,14 @@
       <div class="col-lg-8">
         <div>
            <h2 class="text-uppercase mb-30px">About TruVision</h2>
-          <h3 class="">
+          <h4 class="">
             TruVision is a Houston, Texas-based full-stack web & app development team helping businesses design,
             build, and launch modern digital products — from websites to mobile apps and custom platforms.
-          </h3>
-          <h3 class="mt-30px">
+          </h4>
+          <h4 class="mt-30px">
             We believe software should work for you.
             make your business run smoother, faster, and more profitable.
-          </h3>
+          </h4>
         </div>
       </div>
 
@@ -577,7 +577,7 @@
         <!-- Single-page CTA instead of pricing page -->
         <div class="col-lg-3 col-md-4 sm-hide d-flex justify-content-end">
           <div>
-            <a href="#contact" class="butn-more d-flex align-items-center">
+            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Contact for Quote</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -624,7 +624,7 @@
           </div>
 
           <div class="mt-30px">
-            <a href="#contact" class="butn-more d-flex align-items-center">
+            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Get Started</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -668,13 +668,13 @@
           </div>
 
           <div class="mt-30px">
-            <a href="#contact" class="butn-more d-flex align-items-center">
+            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Get Started</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 11.5H17.0635M17.0635 11.5L12.5635 7M17.0635 11.5L12.5635 16"></path>
                 </svg>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
                   <path d="M7 11.5H17.0635M17.0635 11.5L12.5635 7M17.0635 11.5L12.5635 16"></path>
                 </svg>
               </span>
@@ -712,7 +712,7 @@
           </div>
 
           <div class="mt-30px">
-            <a href="#contact" class="butn-more d-flex align-items-center">
+            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Get Started</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -733,6 +733,82 @@
 
 
                 <!-- ==================== End Services ==================== -->
+
+<div class="container" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+  <div class="row mb-80px">
+    <div class="col-lg-2">
+      <div class="pt-15px">
+        <span class="butn-bord-sm mb-15px">Web &amp; App Development</span>
+      </div>
+    </div>
+    <div class="col-lg-10">
+      <div>
+        <h1 class="fs-80">
+          We build elegant web &amp; mobile products — with a limited monthly client roster to guarantee quality.
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="intro-style3">
+    <div class="row">
+      <!-- Capacity card -->
+      <div class="col-lg-5">
+        <div class="bg-light main-colorbg box-bgimg1 h-400px border-radius-30px o-hidden mt-30px v-align-between h-100 text-align-right">
+          <div>
+            <h2 class="fs-100 mozilla-font">
+              12<span class="fs-40" style="opacity:.8;">/mo</span>
+            </h2>
+            <p style="color: black;"> 
+              Max clients per month <br>
+              so every project gets senior focus, clean design, and polished delivery.
+            </p>
+          </div>
+          <div>
+            <span class="butn-bord-sm mt-15px">Quality Guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Availability card -->
+      <div class="col-lg-7">
+        <div class="sub-bg box-bgimg h-400px border-radius-30px o-hidden mt-30px">
+          <div class="row h-100">
+            <div class="col-sm-6 v-align-between h-100">
+              <div class="user-imgs style1 mb-15px">
+                <span class="fit-img">
+                  <img src="assets/imgs/team/1.png" alt="">
+                </span>
+                <span class="fit-img bg-light p-5px">
+                  <img src="assets/imgs/star.png" alt="">
+                </span>
+                <span class="fit-img">
+                  <img src="assets/imgs/team/3.png" alt="">
+                </span>
+              </div>
+
+              <div>
+                <h2 class="fs-100 mozilla-font">
+                  <span id="activeClients">8</span>/<span id="monthlyCap">12</span>
+                </h2>
+                <p style="color: black;">
+                  Active clients this month <br>
+                  <strong><span id="openSlots">4</span> slots</strong> available for new projects.
+                </p>
+                <p  style="opacity:.8; margin-top:10px; color: black;">
+                  We cap capacity to protect quality, timelines, and the elegance of the final result.
+                </p>
+              </div>
+            </div>
+            <!-- you can keep your other columns/content as-is -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: quick way to update the counters -->
 
 
 
@@ -894,7 +970,7 @@
       <!-- CTA (Single Page) -->
       <div class="col-lg-6 items" data-ui-animate data-delay="0.2">
         <div class="mt-80px">
-          <a href="#contact" class="circle-button" aria-label="Contact TruVision">
+          <a href="#services" onclick="openModal()" class="circle-button" aria-label="Contact TruVision">
             <div class="rotate-circle fs-24 text-uppercase">
               <svg class="textcircle" viewBox="0 0 500 500">
                 <defs>
@@ -1288,10 +1364,10 @@
                 <h2><span class="opacity-7">Let’s</span> <br> Start your project</h2>
               </div>
               <div>
-                <a href="#contact" class="butn-arrow butn-rounded">
+                <a href="#" onclick="openModal()" class="butn-arrow butn-rounded">
                   <span class="text-uppercase fs-14 fw-500">Get In Touch</span>
                   <span class="arrow-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
                       <path d="M7 11.5H17.0635M17.0635 11.5L12.5635 7M17.0635 11.5L12.5635 16"></path>
                     </svg>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1319,6 +1395,10 @@
                   <p class="fs-14 mb-5px opacity-8">
                     <i class="fa-solid fa-phone mr-10px"></i>
                     <a href="tel:+18322390826">+1 832 239-0826</a>
+                  </p>
+                  <p class="fs-14 mb-5px opacity-8">
+                    <i class="fa-solid fa-envelope mr-10px"></i>
+                    <a href="mailto:Truvsnoffcial@gmail.com">Truvsnoffcial@gmail.com</a>
                   </p>
                   <p class="fs-14 mb-0 opacity-8">
                     <i class="fa-solid fa-location-dot mr-10px"></i>
@@ -1349,7 +1429,7 @@
             <h5>Explore <br> TruVision</h5>
             <div class="social-icon-circle mt-30px">
               <!-- Replace # with your real links later -->
-              <a href="#" aria-label="TruVision on X"> <i class="fab fa-x-twitter"></i> </a>
+              <!-- <a href="#" aria-label="TruVision on X"> <i class="fab fa-x-twitter"></i> </a> -->
               <a href="#" aria-label="TruVision on Facebook"> <i class="fab fa-facebook-f"></i> </a>
               <a href="#" aria-label="TruVision on Instagram"> <i class="fab fa-instagram"></i> </a>
               <a href="#" aria-label="TruVision on LinkedIn"> <i class="fab fa-linkedin-in"></i> </a>
@@ -1399,6 +1479,155 @@
 
 
 
+    <!-- Modal for Project Inquiry -->
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Start Your Project</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="step-indicators">
+                <div class="step-circle active" data-step="1">1</div>
+                <div class="step-circle" data-step="2">2</div>
+                <div class="step-circle" data-step="3">3</div>
+                <div class="step-circle" data-step="4">4</div>
+                <div class="step-circle" data-step="5">5</div>
+            </div>
+            <form id="projectForm">
+                <!-- Step 1: Business Info -->
+                <div class="form-step active" id="step1">
+                    <h3>Business Information</h3>
+                    <div class="form-group">
+                        <label for="businessName">Business Name *</label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website (if any)</label>
+                        <input type="url" id="website" name="website">
+                    </div>
+                    <div class="form-group">
+                        <label for="primaryContact">Primary Contact *</label>
+                        <input type="text" id="primaryContact" name="primaryContact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <!-- Step 2: Business Goals -->
+                <div class="form-step" id="step2">
+                    <h3>Business Goals</h3>
+                    <div class="form-group">
+                        <label for="mainGoal">What is the main goal of this project? *</label>
+                        <textarea id="mainGoal" name="mainGoal" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="problem">What problem are you trying to solve? *</label>
+                        <textarea id="problem" name="problem" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="scaling">Are you planning to scale in the next 6–12 months? *</label>
+                        <select id="scaling" name="scaling" required>
+                            <option value="" style="color: black;">Select an option</option>
+                            <option value="yes" style="color: black;">Yes</option>
+                            <option value="no" style="color: black;">No</option>
+                            <option value="maybe" style="color: black;">Maybe</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 3: Website/App Needs -->
+                <div class="form-step" id="step3">
+                    <h3>Website/App Needs</h3>
+                    <div class="form-group">
+                        <label for="projectType">Type of project *</label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Select type</option>
+                            <option value="landing" style="color: black;">Landing Page</option>
+                            <option value="website" style="color: black;">Full Website</option>
+                            <option value="ecommerce" style="color: black;">Ecommerce</option>
+                            <option value="app" style="color: black;">Mobile App</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numPages">Number of pages *</label>
+                        <input type="number" id="numPages" name="numPages" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="features">Features needed *</label>
+                        <textarea id="features" name="features" rows="3" placeholder="e.g., contact forms, blog, user accounts" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="examples">Examples you like (links)</label>
+                        <textarea id="examples" name="examples" rows="2" placeholder="URLs of websites/apps you admire"></textarea>
+                    </div>
+                </div>
+
+                <!-- Step 4: Brand Direction -->
+                <div class="form-step" id="step4">
+                    <h3>Brand Direction</h3>
+                    <div class="form-group">
+                        <label for="brandTone">Brand tone *</label>
+                        <select id="brandTone" name="brandTone" required>
+                            <option value="" style="color: black;">Select tone</option>
+                            <option value="minimal" style="color: black;">Minimal</option>
+                            <option value="bold" style="color: black;">Bold</option>
+                            <option value="luxury" style="color: black;">Luxury</option>
+                            <option value="playful" style="color: black;">Playful</option>
+                            <option value="professional" style="color: black;">Professional</option>
+                            <option value="creative" style="color: black;">Creative</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="brandColors">Colors (if any)</label>
+                        <input type="text" id="brandColors" name="brandColors" placeholder="e.g., blue and white, hex codes">
+                    </div>
+                    <div class="form-group">
+                        <label for="brandAssets">Logos or assets (upload)</label>
+                        <input type="file" id="brandAssets" name="brandAssets" multiple accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Step 5: Admin & Access -->
+                <div class="form-step" id="step5">
+                    <h3>Admin & Access</h3>
+                    <div class="form-group">
+                        <label for="adminPerson">Who will manage the site? *</label>
+                        <select id="adminPerson" name="adminPerson" required>
+                            <option value="">Select</option>
+                            <option value="me" style="color: black;">Me</option>
+                            <option value="team" style="color: black;">My team</option>
+                            <option value="agency" style="color: black;">An agency</option>
+                            <option value="outsourced" style="color: black;">Outsourced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="training">Will you need training? *</label>
+                        <select id="training" name="training" required>
+                            <option value="">Select</option>
+                            <option value="yes" style="color: black;">Yes</option>
+                            <option value="no" style="color: black;">No</option>
+                            <option value="maybe" style="color: black;">Maybe</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+                <button type="button" id="nextBtn" onclick="nextStep()">Next</button>
+                <button type="button" id="submitBtn" onclick="submitForm()" style="display: none;">Submit</button>
+            </div>
+        </div>
+    </div>
+
     <!-- jQuery -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/jquery-migrate-3.4.0.min.js"></script>
@@ -1415,6 +1644,146 @@
 
     <!-- custom scripts -->
     <script src="assets/js/scripts.js"></script>
+
+    <!-- Modal JavaScript -->
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        function openModal() {
+            document.getElementById('projectModal').classList.add('show');
+            currentStep = 1;
+            updateStep();
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('show');
+            // Reset form
+            document.getElementById('projectForm').reset();
+            currentStep = 1;
+            updateStep();
+        }
+
+        function updateStep() {
+            // Hide all steps
+            const steps = document.querySelectorAll('.form-step');
+            steps.forEach(step => step.classList.remove('active'));
+
+            // Show current step
+            document.getElementById(`step${currentStep}`).classList.add('active');
+
+            // Update progress bar
+            const progressBar = document.getElementById('progressBar');
+            const progress = (currentStep / totalSteps) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Update step indicators
+            const circles = document.querySelectorAll('.step-circle');
+            circles.forEach((circle, index) => {
+                if (index + 1 <= currentStep) {
+                    circle.classList.add('active');
+                } else {
+                    circle.classList.remove('active');
+                }
+            });
+
+            // Update buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            prevBtn.disabled = currentStep === 1;
+            nextBtn.style.display = currentStep === totalSteps ? 'none' : 'block';
+            submitBtn.style.display = currentStep === totalSteps ? 'block' : 'none';
+
+            // Auto scroll to top of modal content
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.scrollTop = 0;
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                // Validate current step
+                if (!validateStep(currentStep)) {
+                    return;
+                }
+                currentStep++;
+                updateStep();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStep();
+            }
+        }
+
+        function validateStep(step) {
+            const requiredFields = document.querySelectorAll(`#step${step} input[required], #step${step} select[required], #step${step} textarea[required]`);
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#dc3545';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }
+            });
+
+            return isValid;
+        }
+
+        function submitForm() {
+            if (!validateStep(currentStep)) {
+                return;
+            }
+
+            // Collect form data
+            const formData = new FormData(document.getElementById('projectForm'));
+            const data = Object.fromEntries(formData.entries());
+
+            // Here you would typically send the data to your server
+            // For demo purposes, we'll just show an alert
+            console.log('Form submitted:', data);
+            alert('Thank you for your submission! We\'ll get back to you soon.');
+
+            // Close modal
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('projectModal').classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        // Update progress bar on step change
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStep();
+        });
+    </script>
+
+    <script>
+  // Update these two values however you want (CMS, backend, manual, etc.)
+  const monthlyCap = 12;
+  const activeClients = 8;
+
+  const openSlots = Math.max(monthlyCap - activeClients, 0);
+
+  document.getElementById("monthlyCap").textContent = monthlyCap;
+  document.getElementById("activeClients").textContent = activeClients;
+  document.getElementById("openSlots").textContent = openSlots;
+</script>
 
 </body>
 
