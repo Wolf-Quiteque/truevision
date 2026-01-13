@@ -12478,3 +12478,23 @@ body.light footer .main-color {
 /* ====================== [ End Modal Styles ] ====================== */
 
 /* ====================== [ End Responsive ] ====================== */
+
+/* --- Mobile headline fix (prevents oversized text + weird wraps) --- */
+.fs-80{
+  font-size: clamp(34px, 7vw, 80px) !important;
+  line-height: 1.08;
+}
+
+@media (max-width: 576px){
+  .fs-80{
+    font-size: clamp(28px, 8.5vw, 44px) !important;
+    line-height: 1.12;
+  }
+}
+
+.mobile-balance{
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}

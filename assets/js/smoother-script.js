@@ -3,19 +3,35 @@ $(function () {
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  ScrollTrigger.normalizeScroll(false);
+  const isMobile = window.matchMedia("(max-width: 991px), (pointer: coarse)").matches;
 
-  // create the smooth scroller FIRST!
-  let smoother = ScrollSmoother.create({
-    smooth: 2,
-    effects: true,
-  });
+  if (!isMobile) {
+    ScrollTrigger.normalizeScroll(false);
 
-  // Smooth scroll for nav links
-  $('.navbar-nav .nav-link').on('click', function(e) {
-    e.preventDefault();
-    const target = $(this).attr('href');
-    smoother.scrollTo(target);
-  });
+    let smoother = ScrollSmoother.create({
+      smooth: 2,
+      effects: true,
+    });
+
+    // Smooth scroll for nav links (desktop)
+    $('.navbar-nav .nav-link').on('click', function (e) {
+      e.preventDefault();
+      const target = $(this).attr('href');
+      smoother.scrollTo(target);
+    });
+
+  } else {
+    // Mobile: avoid heavy smoother (keeps scroll feeling snappy)
+    ScrollTrigger.normalizeScroll(true);
+
+    // Smooth anchor scroll using native browser behavior
+    $('.navbar-nav .nav-link').on('click', function (e) {
+      const target = $(this).attr('href');
+      if (target && target.startsWith('#')) {
+        e.preventDefault();
+        document.querySelector(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
 
 });
