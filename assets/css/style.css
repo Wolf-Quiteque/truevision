@@ -12420,6 +12420,7 @@ body.light footer .main-color {
 .modal-footer {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -12435,6 +12436,8 @@ body.light footer .main-color {
     transition: all 0.3s;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
+    flex: 1;
+    min-height: 44px;
 }
 
 .modal-footer button:hover:not(:disabled) {
@@ -12456,8 +12459,11 @@ body.light footer .main-color {
 @media (max-width: 768px) {
     .modal-content {
         padding: 20px;
-        margin: 20px;
+        margin: 10px;
         max-width: none;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .modal-header h2 {
@@ -12469,12 +12475,16 @@ body.light footer .main-color {
     }
 
     .modal-footer {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 20px;
+        padding-top: 15px;
     }
 
     .modal-footer button {
-        margin-bottom: 10px;
         width: 100%;
+        padding: 10px 16px;
+        font-size: 14px;
     }
 }
 
@@ -12508,9 +12518,19 @@ body.light footer .main-color {
     max-width: 700px;
     max-height: 90vh !important; /* Limit height */
     overflow-y: auto !important; /* Make content scrollable */
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch !important; /* Smooth iOS scrolling */
     position: relative;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.modal-content > form {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Prevent body scroll when modal is open */
@@ -12519,6 +12539,8 @@ body.modal-open {
     position: fixed !important;
     width: 100% !important;
     height: 100% !important;
+    top: 0;
+    left: 0;
 }
 
 /* Mobile-specific fixes */
@@ -12529,9 +12551,10 @@ body.modal-open {
     }
 
     .modal-content {
-        max-height: 85vh; /* Slightly smaller on mobile */
-        margin-top: 20px;
-        margin-bottom: 20px;
+        max-height: calc(100vh - 20px); /* Slightly smaller on mobile */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 20px;
     }
 
     /* Make footer sticky at bottom on mobile */
@@ -12539,10 +12562,18 @@ body.modal-open {
         position: sticky;
         bottom: 0;
         background: #1a1a1a;
-        padding: 15px 20px;
-        margin: 0 -20px -20px;
+        padding: 15px 0;
+        margin: 20px -20px -20px -20px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        z-index: 10;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-footer button {
+        width: 100% !important;
+        padding: 12px 24px !important;
     }
 }
 
