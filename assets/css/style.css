@@ -12262,17 +12262,17 @@ body.light footer .main-color {
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
     display: none;
-    justify-content: center;
-    align-items: center;
     z-index: 9999;
     backdrop-filter: blur(5px);
-    overflow-y: auto !important; /* Enable scrolling */
-    -webkit-overflow-scrolling: touch !important; /* Smooth iOS scrolling */
-    padding: 20px;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .modal-overlay.show {
-    display: flex;
+    display: block;
 }
 
 .modal-content {
@@ -12280,14 +12280,12 @@ body.light footer .main-color {
     border-radius: 20px;
     padding: 0;
     max-width: 700px;
-    width: 100%;
-    max-height: 90vh !important;
-    overflow-y: auto !important;
-    overflow-x: hidden;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    margin-bottom: 40px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
     position: relative;
-    margin: auto;
-    -webkit-overflow-scrolling: touch !important;
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-header {
@@ -12297,10 +12295,7 @@ body.light footer .main-color {
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px 30px 15px 30px;
-    position: sticky;
-    top: 0;
     background: #1C1C1C;
-    z-index: 10;
 }
 
 .modal-header h2 {
@@ -12348,9 +12343,6 @@ body.light footer .main-color {
 
 #projectForm {
     padding: 0 30px 30px 30px;
-    flex: 1;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .step-indicators {
@@ -12439,9 +12431,6 @@ body.light footer .main-color {
     padding: 20px 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: #1C1C1C;
-    position: sticky;
-    bottom: 0;
-    z-index: 10;
 }
 
 .modal-footer button {
@@ -12487,14 +12476,16 @@ body.modal-open {
 /* Mobile-specific fixes */
 @media (max-width: 768px) {
     .modal-overlay {
-        padding: 10px;
-        align-items: flex-start;
+        padding: 10px 0;
+        overflow-y: scroll !important;
     }
 
     .modal-content {
-        max-height: calc(100vh - 20px);
-        margin-top: 10px;
-        margin-bottom: 10px;
+        max-width: none;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 40px;
         border-radius: 12px;
     }
 
@@ -12503,9 +12494,9 @@ body.modal-open {
     }
 
     .progress-container {
-        padding: 0 20px;
         margin-left: -20px;
         margin-right: -20px;
+        width: calc(100% + 40px);
     }
 
     .step-indicators {
@@ -12528,7 +12519,6 @@ body.modal-open {
         padding: 15px 20px;
         flex-direction: row;
         gap: 8px;
-        margin: 0;
     }
 
     .modal-footer button {
