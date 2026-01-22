@@ -7270,7 +7270,10 @@ body.loaded {
   align-items: center;
   justify-content: center;
   background: transparent;
-  z-index: 99999999999999;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
 .loader-wrap svg {
@@ -12476,16 +12479,15 @@ body.modal-open {
 /* Mobile-specific fixes */
 @media (max-width: 768px) {
     .modal-overlay {
-        padding: 15px 0;
+        padding: 80px 0 40px 0;
         overflow-y: scroll !important;
         -webkit-overflow-scrolling: touch !important;
     }
 
     .modal-content {
-        max-width: none;
-        width: calc(100% - 20px);
-        margin-left: 10px;
-        margin-right: 10px;
+        max-width: 90%;
+        width: 100%;
+        margin: 0 auto;
         margin-bottom: 80px;
         border-radius: 12px;
     }
