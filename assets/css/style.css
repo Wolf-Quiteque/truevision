@@ -12477,6 +12477,37 @@ body.light footer .main-color {
 
 /* ====================== [ End Modal Styles ] ====================== */
 
+/* Modal Mobile Scrolling Fixes */
+.modal-overlay {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent body scroll when modal open */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Mobile-specific modal footer */
+@media (max-width: 768px) {
+    .modal-footer {
+        position: sticky;
+        bottom: 0;
+        background: #1a1a1a;
+        padding: 15px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
 /* ====================== [ End Responsive ] ====================== */
 
 /* --- Mobile headline fix (prevents oversized text + weird wraps) --- */

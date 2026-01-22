@@ -1698,19 +1698,19 @@ function syncPreferredContact() {
   const email = document.getElementById("email");
   const phone = document.getElementById("phone");
 
-  // default: show both, require none
+  // default: hide both, require none
   if (email) email.required = false;
   if (phone) phone.required = false;
-  if (emailGroup) emailGroup.style.display = "";
-  if (phoneGroup) phoneGroup.style.display = "";
+  if (emailGroup) emailGroup.style.display = "none";
+  if (phoneGroup) phoneGroup.style.display = "none";
 
-  // enforce requirement based on selected method
+  // show and require based on selected method
   if (method === "email") {
+    if (emailGroup) emailGroup.style.display = "";
     if (email) email.required = true;
-    if (phoneGroup) phoneGroup.style.display = "none";
   } else if (method === "phone") {
+    if (phoneGroup) phoneGroup.style.display = "";
     if (phone) phone.required = true;
-    if (emailGroup) emailGroup.style.display = "none";
   }
 }
 
@@ -1730,17 +1730,19 @@ function syncBrandToneOther() {
 }
         function openModal() {
             document.getElementById('projectModal').classList.add('show');
+            document.body.classList.add('modal-open');
             currentStep = 1;
             updateStep();
         }
 
         function closeModal() {
             document.getElementById('projectModal').classList.remove('show');
+            document.body.classList.remove('modal-open');
             // Reset form
             document.getElementById('projectForm').reset();
             currentStep = 1;
             updateStep();
-            
+
             syncPreferredContact();
   syncBrandToneOther();
         }
