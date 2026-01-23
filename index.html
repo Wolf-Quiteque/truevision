@@ -1728,32 +1728,57 @@ function syncBrandToneOther() {
     otherInput.value = "";
   }
 }
+
+        // ===== Mobile modal scroll lock (prevents background page scroll) =====
+        let __modalScrollY = 0;
+
+        function lockPageScroll() {
+            __modalScrollY = window.scrollY || window.pageYOffset || 0;
+            document.documentElement.classList.add('modal-open');
+            document.body.classList.add('modal-open');
+            document.body.style.top = `-${__modalScrollY}px`;
+        }
+
+        function unlockPageScroll() {
+            document.documentElement.classList.remove('modal-open');
+            document.body.classList.remove('modal-open');
+            const y = __modalScrollY;
+            document.body.style.top = '';
+            window.scrollTo(0, y);
+        }
+
+        // Prevent touch scroll on the dark overlay itself (iOS Safari fix)
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('projectModal');
+            if (!overlay) return;
+            overlay.addEventListener('touchmove', (e) => {
+                // allow scrolling only inside the modal box
+                if (!e.target.closest('.modal-content')) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+        });
+
+
         function openModal() {
-             document.getElementById('projectModal').classList.add('show');
-
-             // HOTFIX: prevent the background page from stealing the scroll on mobile
-             document.documentElement.style.overflow = "hidden";
-             document.body.style.overflow = "hidden";
-
-             currentStep = 1;
-             updateStep();
-         }
+            document.getElementById('projectModal').classList.add('show');
+            lockPageScroll();
+            currentStep = 1;
+            updateStep();
+        }
 
         function closeModal() {
-             document.getElementById('projectModal').classList.remove('show');
+            document.getElementById('projectModal').classList.remove('show');
+            unlockPageScroll();
 
-             // HOTFIX: restore page scroll
-             document.documentElement.style.overflow = "";
-             document.body.style.overflow = "";
+            // Reset form
+            document.getElementById('projectForm').reset();
+            currentStep = 1;
+            updateStep();
 
-             // Reset form
-             document.getElementById('projectForm').reset();
-             currentStep = 1;
-             updateStep();
-
-             syncPreferredContact();
-             syncBrandToneOther();
-         }
+            syncPreferredContact();
+            syncBrandToneOther();
+        }
 
         function updateStep() {
             // Hide all steps
@@ -1763,11 +1788,7 @@ function syncBrandToneOther() {
             // Show current step
             document.getElementById(`step${currentStep}`).classList.add('active');
 
-             // Ensure the step starts at the top on mobile
-             const formEl = document.getElementById('projectForm');
-             if (formEl) formEl.scrollTop = 0;
-
-             // Update progress bar
+            // Update progress bar
             const progressBar = document.getElementById('progressBar');
             const progress = (currentStep / totalSteps) * 100;
             progressBar.style.width = `${progress}%`;
