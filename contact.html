@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="keywords" content="TruVision, Houston web development, Houston app development, contact">
+  <meta name="description" content="Contact TruVision - Get in touch with our web and app development team in Houston, Texas.">
+  <meta name="author" content="TruVision">
+
+  <title>Contact TruVision | Web & App Development (Houston, TX)</title>
+
+  <link rel="shortcut icon" href="assets/imgs/favicon3.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/plugins.css?v=1">
+  <link rel="stylesheet" href="assets/css/style.css?v=1">
+
+  <style>
+    /* Space Theme Background */
+    #spaceBackground {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0e27 0%, #16213e 50%, #0f3460 100%);
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .stars-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: twinkle 3s infinite, float 20s infinite linear;
+    }
+
+    .star.small {
+      width: 1px;
+      height: 1px;
+      opacity: 0.4;
+    }
+
+    .star.large {
+      width: 3px;
+      height: 3px;
+      opacity: 0.8;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(-100vh) translateX(var(--drift, 0));
+      }
+    }
+
+    /* Content positioning */
+    body.contact-page {
+      background: transparent;
+      overflow-y: auto;
+    }
+
+    .contact-page-wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-c120px 20px ontent: center;
+      padding: 40px 20px;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      background: rgba(16, 52, 96, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .contact-header p {
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    /* Back to home button */
+    .back-to-home {
+      display: none;
+    }
+
+    /* Navbar styling for contact page */
+    .contact-page nav {
+      position: relative;
+      z-index: 10;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+
+    .contact-page nav .navbar-collapse {
+      display: none !important;
+    }
+
+    .contact-page nav .navbar-toggler {
+      display: none !important;
+    }
+
+    /* Modal styling on contact page */
+    .contact-page #projectModal .modal-overlay {
+      position: relative;
+    }
+
+    .contact-page #projectModal .modal-content {
+      background: rgba(16, 52, 96, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    /* Form styling adjustments */
+    .contact-page .form-group input,
+    .contact-page .form-group select,
+    .contact-page .form-group textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .contact-page .form-group label {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Step circles styling */
+    .contact-page .step-circle {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .contact-page .step-circle.active {
+      background: #00d4ff;
+      border-color: #00d4ff;
+      color: #0a0e27;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-container {
+        padding: 30px;
+      }
+
+      .contact-header h1 {
+        font-size: 36px;
+      }
+
+      .contact-page-wrapper {
+        padding: 100px 20px 40px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-container {
+        padding: 20px;
+        max-width: 100%;
+      }
+
+      .contact-header h1 {
+        font-size: 28px;
+      }
+
+      .contact-header p {
+        font-size: 14px;
+      }
+
+      .contact-page-wrapper {
+        padding: 90px 15px 30px 15px;
+      }
+
+      .modal-footer button {
+        padding: 10px 15px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body class="design-studio light contact-page">
+
+  <!-- Space Background with Floating Stars -->
+  <div id="spaceBackground">
+    <div class="stars-container" id="starsContainer"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container align-items-center">
+      <a class="" href="index.html">
+        <img src="assets/imgs/logo-dark1.svg" style="height: 45px;" alt="TruVision logo">
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main class="o-hidden">
+        <div class="contact-page-wrapper">
+          <div class="contact-container">
+            <div class="contact-header">
+              <h1>Let's Connect</h1>
+              <p style="color: #ffffff !important;">Tell us about your project and let's build something amazing together</p>
+            </div>
+
+            <!-- Modal Content Embedded -->
+            <div id="projectModalEmbedded">
+              <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+              </div>
+              <div class="step-indicators">
+                <div class="step-circle active" data-step="1">1</div>
+                <div class="step-circle" data-step="2">2</div>
+                <div class="step-circle" data-step="3">3</div>
+                <div class="step-circle" data-step="4">4</div>
+                <div class="step-circle" data-step="5">5</div>
+              </div>
+              <form id="projectForm">
+                <!-- Step 1: Business Info -->
+                <div class="form-step active" id="step1">
+                  <h3>Business Information</h3>
+                  
+                  <div class="form-group">
+                    <label for="businessName">Business Name *</label>
+                    <input type="text" id="businessName" name="businessName" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="website">Website (if any)</label>
+                    <input type="url" id="website" name="website" placeholder="https://">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="contactName">Contact name (optional)</label>
+                    <input type="text" id="contactName" name="contactName" placeholder="Your name">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="preferredContactMethod">Preferred method of contact *</label>
+                    <select id="preferredContactMethod" name="preferredContactMethod" required>
+                      <option value="" style="color:black;">Select an option</option>
+                      <option value="email" style="color:black;">Email</option>
+                      <option value="phone" style="color:black;">Phone</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group" id="emailGroup">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com">
+                  </div>
+                  
+                  <div class="form-group" id="phoneGroup">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (___) ___-____">
+                  </div>
+                </div>
+
+                <!-- Step 2: Business Goals -->
+                <div class="form-step" id="step2">
+                  <h3>Business Goals</h3>
+                  
+                  <div class="form-group">
+                    <label for="mainGoal">What is the main goal of this project?</label>
+                    <textarea id="mainGoal" name="mainGoal" rows="3"></textarea>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="problem">What problem are you trying to solve?</label>
+                    <textarea id="problem" name="problem" rows="3"></textarea>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="scaling">Are you planning to scale in the next 6–12 months?</label>
+                    <select id="scaling" name="scaling">
+                      <option value="" style="color: black;">Select an option</option>
+                      <option value="yes" style="color: black;">Yes</option>
+                      <option value="no" style="color: black;">No</option>
+                      <option value="maybe" style="color: black;">Maybe</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Step 3: Website/App Needs -->
+                <div class="form-step" id="step3">
+                  <h3>Website/App Needs</h3>
+                  <div class="form-group">
+                    <label for="projectType">Type of project *</label>
+                    <select id="projectType" name="projectType" >
+                      <option value="">Select type</option>
+                      <option value="landing" style="color: black;">Landing Page</option>
+                      <option value="website" style="color: black;">Full Website</option>
+                      <option value="ecommerce" style="color: black;">Ecommerce</option>
+                      <option value="app" style="color: black;">Mobile App</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="estimatedPages">Estimated number of pages</label>
+                    <input
+                      type="text"
+                      id="estimatedPages"
+                      name="estimatedPages"
+                      placeholder="e.g., 1–3, 5–7, or not sure yet"
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="features">Features needed</label>
+                    <textarea id="features" name="features" rows="3" placeholder="e.g., contact form, booking, blog, user accounts"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="futureNeeds">Future needs (optional)</label>
+                    <textarea id="futureNeeds" name="futureNeeds" rows="3" placeholder="If you know. If not, leave blank."></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="examples">Examples you like (links)</label>
+                    <textarea id="examples" name="examples" rows="2" placeholder="URLs of websites/apps you admire"></textarea>
+                  </div>
+                </div>
+
+                <!-- Step 4: Brand Direction -->
+                <div class="form-step" id="step4">
+                  <h3>Brand Direction</h3>
+                  <div class="form-group">
+                    <label for="brandTone">Brand tone</label>
+                    <select id="brandTone" name="brandTone">
+                      <option value="" style="color: black;">Select tone</option>
+                      <option value="minimal" style="color: black;">Minimal</option>
+                      <option value="bold" style="color: black;">Bold</option>
+                      <option value="luxury" style="color: black;">Luxury</option>
+                      <option value="playful" style="color: black;">Playful</option>
+                      <option value="professional" style="color: black;">Professional</option>
+                      <option value="creative" style="color: black;">Creative</option>
+                      <option value="other" style="color: black;">Other</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group" id="brandToneOtherGroup" style="display:none;">
+                    <label for="brandToneOther">If other, please specify</label>
+                    <input type="text" id="brandToneOther" name="brandToneOther" placeholder="Describe the tone you want">
+                  </div>
+                  <div class="form-group">
+                    <label for="brandColors">Colors (if any)</label>
+                    <input type="text" id="brandColors" name="brandColors" placeholder="e.g., blue and white, hex codes">
+                  </div>
+                  <div class="form-group">
+                    <label for="brandAssets">Logos or assets (upload)</label>
+                    <input type="file" id="brandAssets" name="brandAssets" multiple accept="image/*">
+                  </div>
+                </div>
+
+                <!-- Step 5: Admin & Access -->
+                <div class="form-step" id="step5">
+                  <h3>Admin & Access</h3>
+                  
+                  <div class="form-group">
+                    <label for="adminPerson">Who will manage the site?</label>
+                    <select id="adminPerson" name="adminPerson">
+                      <option value="">Select</option>
+                      <option value="me" style="color: black;">Me</option>
+                      <option value="team" style="color: black;">My team</option>
+                      <option value="agency" style="color: black;">An agency</option>
+                      <option value="outsourced" style="color: black;">Outsourced</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="training">Will you need training?</label>
+                    <select id="training" name="training">
+                      <option value="">Select</option>
+                      <option value="yes" style="color: black;">Yes</option>
+                      <option value="no" style="color: black;">No</option>
+                      <option value="maybe" style="color: black;">Maybe</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+              <div class="modal-footer">
+                <button type="button" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+                <button type="button" id="nextBtn" onclick="nextStep()">Next</button>
+                <button type="button" id="submitBtn" onclick="submitForm()" style="display: none;">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery-3.6.0.min.js?v=2"></script>
+  <script src="assets/js/jquery-migrate-3.4.0.min.js?v=2"></script>
+  <script src="assets/js/plugins.js?v=2"></script>
+  <script src="assets/js/imagesloaded.pkgd.min.js?v=2"></script>
+  <script src="assets/js/gsap.min.js?v=2"></script>
+  <script src="assets/js/ScrollSmoother.min.js?v=2"></script>
+  <script src="assets/js/ScrollTrigger.min.js?v=2"></script>
+  <script src="assets/js/smoother-script.js?v=2"></script>
+  <script src="assets/js/springer.min.js?v=2"></script>
+  <script src="assets/js/scripts.js?v=3"></script>
+
+  <!-- Floating Stars Script -->
+  <script>
+    function createStars() {
+      const container = document.getElementById('starsContainer');
+      const starCount = 100;
+      const sizes = ['', 'small', 'large'];
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = `star ${sizes[Math.floor(Math.random() * sizes.length)]}`;
+        
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = 20 + Math.random() * 30;
+        const drift = (Math.random() - 0.5) * 100;
+        const delay = Math.random() * 5;
+
+        star.style.left = x + '%';
+        star.style.top = y + '%';
+        star.style.setProperty('--drift', drift + 'px');
+        star.style.animation = `float ${duration}s linear ${delay}s infinite, twinkle 3s ease-in-out ${Math.random() * 3}s infinite`;
+
+        container.appendChild(star);
+      }
+    }
+
+    // Initialize stars on page load
+    window.addEventListener('DOMContentLoaded', createStars);
+  </script>
+
+  <!-- Form Handling Script -->
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+    const PROJECT_INQUIRY_API_URL = "https://hs-node-api.vercel.app/api/project-inquiry";
+
+    function syncPreferredContact() {
+      const method = document.getElementById("preferredContactMethod")?.value;
+      const emailGroup = document.getElementById("emailGroup");
+      const phoneGroup = document.getElementById("phoneGroup");
+      const email = document.getElementById("email");
+      const phone = document.getElementById("phone");
+
+      if (emailGroup) emailGroup.style.display = method === "email" ? "block" : "none";
+      if (phoneGroup) phoneGroup.style.display = method === "phone" ? "block" : "none";
+      if (email) email.required = method === "email";
+      if (phone) phone.required = method === "phone";
+    }
+
+    function syncBrandToneOther() {
+      const brandTone = document.getElementById("brandTone")?.value;
+      const brandToneOtherGroup = document.getElementById("brandToneOtherGroup");
+      if (brandToneOtherGroup) {
+        brandToneOtherGroup.style.display = brandTone === "other" ? "block" : "none";
+      }
+    }
+
+    function updateStep() {
+      const steps = document.querySelectorAll(".form-step");
+      const circles = document.querySelectorAll(".step-circle");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const submitBtn = document.getElementById("submitBtn");
+      const progressBar = document.getElementById("progressBar");
+
+      steps.forEach(step => step.classList.remove("active"));
+      circles.forEach(circle => circle.classList.remove("active"));
+
+      const currentStepElement = document.getElementById(`step${currentStep}`);
+      if (currentStepElement) currentStepElement.classList.add("active");
+
+      const currentCircle = document.querySelector(`[data-step="${currentStep}"]`);
+      if (currentCircle) currentCircle.classList.add("active");
+
+      if (prevBtn) prevBtn.disabled = currentStep === 1;
+      if (nextBtn) nextBtn.style.display = currentStep === totalSteps ? "none" : "block";
+      if (submitBtn) submitBtn.style.display = currentStep === totalSteps ? "block" : "none";
+
+      const progress = (currentStep / totalSteps) * 100;
+      if (progressBar) progressBar.style.width = progress + "%";
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function nextStep() {
+      if (validateStep(currentStep)) {
+        currentStep = Math.min(currentStep + 1, totalSteps);
+        updateStep();
+      }
+    }
+
+    function prevStep() {
+      currentStep = Math.max(currentStep - 1, 1);
+      updateStep();
+    }
+
+    function validateStep(step) {
+      const requiredFields = document.querySelectorAll(`#step${step} input[required], #step${step} select[required], #step${step} textarea[required]`);
+      let isValid = true;
+
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#dc3545';
+          isValid = false;
+        } else {
+          field.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        }
+      });
+
+      return isValid;
+    }
+
+    async function submitForm() {
+      if (!validateStep(currentStep)) return;
+
+      const form = document.getElementById("projectForm");
+      const formData = new FormData(form);
+      formData.append("source", "website");
+      formData.append("submittedAt", new Date().toISOString());
+
+      if (!PROJECT_INQUIRY_API_URL) {
+        console.log("Form ready to send");
+        alert("Thanks! Your request is ready. (Backend not connected yet.)");
+        return;
+      }
+
+      try {
+        const res = await fetch(PROJECT_INQUIRY_API_URL, {
+          method: "POST",
+          body: formData
+        });
+
+        if (!res.ok) {
+          throw new Error(`Request failed (${res.status})`);
+        }
+
+        alert("Thank you! We'll get back to you soon.");
+        form.reset();
+        currentStep = 1;
+        updateStep();
+      } catch (err) {
+        console.error(err);
+        alert("Sorry — something went wrong. Please try again or contact us directly.");
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      updateStep();
+      
+      const preferred = document.getElementById("preferredContactMethod");
+      if (preferred) {
+        preferred.addEventListener("change", syncPreferredContact);
+        syncPreferredContact();
+      }
+      
+      const brandTone = document.getElementById("brandTone");
+      if (brandTone) {
+        brandTone.addEventListener("change", syncBrandToneOther);
+        syncBrandToneOther();
+      }
+    });
+  </script>
+
+</body>
+</html>

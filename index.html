@@ -579,7 +579,7 @@
         <!-- Single-page CTA instead of pricing page -->
         <div class="col-lg-3 col-md-4 sm-hide d-flex justify-content-end">
           <div>
-            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
+            <a href="contact.html" target="_blank" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Contact for Quote</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -626,7 +626,7 @@
           </div>
 
           <div class="mt-30px">
-            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
+            <a href="contact.html" target="_blank" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Get Started</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -670,7 +670,7 @@
           </div>
 
           <div class="mt-30px">
-            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
+            <a href="contact.html" target="_blank" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Get Started</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -714,7 +714,7 @@
           </div>
 
           <div class="mt-30px">
-            <a href="#services" onclick="openModal()" class="butn-more d-flex align-items-center">
+            <a href="contact.html" target="_blank" class="butn-more d-flex align-items-center">
               <span class="text-uppercase fs-14 fw-500">Get Started</span>
               <span class="arrow-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -972,7 +972,7 @@
       <!-- CTA (Single Page) -->
       <div class="col-lg-6 items" data-ui-animate data-delay="0.2">
         <div class="mt-80px">
-          <a href="#services" onclick="openModal()" class="circle-button" aria-label="Contact TruVision">
+          <a href="contact.html" target="_blank" class="circle-button" aria-label="Contact TruVision">
             <div class="rotate-circle fs-24 text-uppercase">
               <svg class="textcircle" viewBox="0 0 500 500">
                 <defs>
@@ -1366,7 +1366,7 @@
                 <h2><span class="opacity-7">Let’s</span> <br> Start your project</h2>
               </div>
               <div>
-                <a href="#" onclick="openModal()" class="butn-arrow butn-rounded">
+                <a href="contact.html" target="_blank" class="butn-arrow butn-rounded">
                   <span class="text-uppercase fs-14 fw-500">Get In Touch</span>
                   <span class="arrow-icon">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -1728,56 +1728,21 @@ function syncBrandToneOther() {
     otherInput.value = "";
   }
 }
-
-        // ===== Mobile modal scroll lock (prevents background page scroll) =====
-        let __modalScrollY = 0;
-
-        function lockPageScroll() {
-            __modalScrollY = window.scrollY || window.pageYOffset || 0;
-            document.documentElement.classList.add('modal-open');
-            document.body.classList.add('modal-open');
-            document.body.style.top = `-${__modalScrollY}px`;
-        }
-
-        function unlockPageScroll() {
-            document.documentElement.classList.remove('modal-open');
-            document.body.classList.remove('modal-open');
-            const y = __modalScrollY;
-            document.body.style.top = '';
-            window.scrollTo(0, y);
-        }
-
-        // Prevent touch scroll on the dark overlay itself (iOS Safari fix)
-        document.addEventListener('DOMContentLoaded', () => {
-            const overlay = document.getElementById('projectModal');
-            if (!overlay) return;
-            overlay.addEventListener('touchmove', (e) => {
-                // allow scrolling only inside the modal box
-                if (!e.target.closest('.modal-content')) {
-                    e.preventDefault();
-                }
-            }, { passive: false });
-        });
-
-
         function openModal() {
             document.getElementById('projectModal').classList.add('show');
-            lockPageScroll();
             currentStep = 1;
             updateStep();
         }
 
         function closeModal() {
             document.getElementById('projectModal').classList.remove('show');
-            unlockPageScroll();
-
             // Reset form
             document.getElementById('projectForm').reset();
             currentStep = 1;
             updateStep();
-
+            
             syncPreferredContact();
-            syncBrandToneOther();
+  syncBrandToneOther();
         }
 
         function updateStep() {
