@@ -184,6 +184,49 @@
       color: #0a0e27;
     }
 
+    /* Loader/Spinner */
+    .submit-loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 14, 39, 0.7);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .submit-loader.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-top: 4px solid #00d4ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .spinner-text {
+      position: absolute;
+      color: #ffffff;
+      font-size: 14px;
+      margin-top: 80px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .contact-container {
@@ -392,10 +435,10 @@
                     <label for="brandColors">Colors (if any)</label>
                     <input type="text" id="brandColors" name="brandColors" placeholder="e.g., blue and white, hex codes">
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="brandAssets">Logos or assets (upload)</label>
                     <input type="file" id="brandAssets" name="brandAssets" multiple accept="image/*">
-                  </div>
+                  </div> -->
                 </div>
 
                 <!-- Step 5: Admin & Access -->
@@ -478,6 +521,14 @@
     window.addEventListener('DOMContentLoaded', createStars);
   </script>
 
+  <!-- Loader HTML -->
+  <div class="submit-loader" id="submitLoader">
+    <div>
+      <div class="spinner"></div>
+      <div class="spinner-text">Submitting...</div>
+    </div>
+  </div>
+
   <!-- Form Handling Script -->
   <script>
     let currentStep = 1;
@@ -556,21 +607,29 @@
           field.style.borderColor = 'rgba(255, 255, 255, 0.1)';
         }
       });
-
-      return isValid;
-    }
-
-    async function submitForm() {
-      if (!validateStep(currentStep)) return;
-
-      const form = document.getElementById("projectForm");
+submitBtn = document.getElementById("submitBtn");
+      const submitLoader = document.getElementById("submitLoader");
       const formData = new FormData(form);
       formData.append("source", "website");
       formData.append("submittedAt", new Date().toISOString());
 
+      // Show loader and disable button
+      if (submitLoader) submitLoader.classList.add("active");
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.6";
+      }
+
       if (!PROJECT_INQUIRY_API_URL) {
         console.log("Form ready to send");
         alert("Thanks! Your request is ready. (Backend not connected yet.)");
+        
+        // Hide loader and re-enable button
+        if (submitLoader) submitLoader.classList.remove("active");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "1";
+        }
         return;
       }
 
@@ -582,6 +641,21 @@
 
         if (!res.ok) {
           throw new Error(`Request failed (${res.status})`);
+        }
+
+        alert("Thank you! We'll get back to you soon.");
+        form.reset();
+        currentStep = 1;
+        updateStep();
+      } catch (err) {
+        console.error(err);
+        alert("Sorry — something went wrong. Please try again or contact us directly.");
+      } finally {
+        // Hide loader and re-enable button
+        if (submitLoader) submitLoader.classList.remove("active");
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "1";
         }
 
         alert("Thank you! We'll get back to you soon.");
