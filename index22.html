@@ -1729,31 +1729,21 @@ function syncBrandToneOther() {
   }
 }
         function openModal() {
-             document.getElementById('projectModal').classList.add('show');
-
-             // HOTFIX: prevent the background page from stealing the scroll on mobile
-             document.documentElement.style.overflow = "hidden";
-             document.body.style.overflow = "hidden";
-
-             currentStep = 1;
-             updateStep();
-         }
+            document.getElementById('projectModal').classList.add('show');
+            currentStep = 1;
+            updateStep();
+        }
 
         function closeModal() {
-             document.getElementById('projectModal').classList.remove('show');
-
-             // HOTFIX: restore page scroll
-             document.documentElement.style.overflow = "";
-             document.body.style.overflow = "";
-
-             // Reset form
-             document.getElementById('projectForm').reset();
-             currentStep = 1;
-             updateStep();
-
-             syncPreferredContact();
-             syncBrandToneOther();
-         }
+            document.getElementById('projectModal').classList.remove('show');
+            // Reset form
+            document.getElementById('projectForm').reset();
+            currentStep = 1;
+            updateStep();
+            
+            syncPreferredContact();
+  syncBrandToneOther();
+        }
 
         function updateStep() {
             // Hide all steps
@@ -1763,11 +1753,7 @@ function syncBrandToneOther() {
             // Show current step
             document.getElementById(`step${currentStep}`).classList.add('active');
 
-             // Ensure the step starts at the top on mobile
-             const formEl = document.getElementById('projectForm');
-             if (formEl) formEl.scrollTop = 0;
-
-             // Update progress bar
+            // Update progress bar
             const progressBar = document.getElementById('progressBar');
             const progress = (currentStep / totalSteps) * 100;
             progressBar.style.width = `${progress}%`;
